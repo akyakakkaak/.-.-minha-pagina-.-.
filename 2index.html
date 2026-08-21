@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinnamoroll ~ Coquette Profile 🎀✨</title>
+
+    <!-- Fonte Fofa do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================================================
+           PALETA CINNAMOROLL & COQUETTE ☁️🎀
+        ========================================================= */
+        :root {
+            --cor-primaria: #89cff0;       /* Azul Bebê Cinnamoroll */
+            --cor-secundaria: #ffb6c1;     /* Rosa Pastel Laço */
+            --cor-fundo: #f0f8ff;          /* Azul Claríssimo Nuvem */
+            --cor-card: #ffffff;           /* Branco Macio */
+            --cor-texto: #5a738e;          /* Azul Acinzentado Suave */
+            --cor-destaque: #ff69b4;       /* Pink Brilhante */
+            --borda-fofa: #b0e0e6;         /* Borda Azul Suave */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Fredoka', 'Quicksand', sans-serif;
+            cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%2389cff0'%3E%3Cpath d='M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6-4.8-6 4.8 2.4-7.2-6-4.8h7.6z'/%3E%3C/svg%3E"), auto;
+        }
+
+        body {
+            background-color: var(--cor-fundo);
+            background-image: 
+                radial-gradient(#89cff0 1.5px, transparent 1.5px), 
+                radial-gradient(#ffb6c1 1.5px, var(--cor-fundo) 1.5px);
+            background-size: 60px 60px;
+            background-position: 0 0, 30px 30px;
+            color: var(--cor-texto);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ANIMAÇÃO DE FLUTUAÇÃO DE NUVEM */
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(1deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 15px rgba(137, 207, 240, 0.4); }
+            50% { box-shadow: 0 0 25px rgba(255, 182, 193, 0.8); }
+            100% { box-shadow: 0 0 15px rgba(137, 207, 240, 0.4); }
+        }
+
+        @keyframes glitter-sparkle {
+            0%, 100% { opacity: 0.3; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* =========================================================
+           CABEÇALHO E NAVEGAÇÃO
+        ========================================================= */
+        header {
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            border-bottom: 3px dashed var(--cor-secundaria);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--cor-primaria);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-shadow: 2px 2px 0px #fff, -2px -2px 0px #fff, 2px -2px 0px #fff, -2px 2px 0px #fff;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-logo:hover {
+            transform: scale(1.05) rotate(-2deg);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--cor-texto);
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #fff;
+            background-color: var(--cor-secundaria);
+            border-color: #fff;
+            box-shadow: 0 4px 10px rgba(255, 182, 193, 0.5);
+            transform: translateY(-2deg);
+        }
+
+        /* =========================================================
+           CONTEÚDO PRINCIPAL
+        ========================================================= */
+        main {
+            flex: 1;
+            max-width: 850px;
+            width: 100%;
+            margin: 2.5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .profile-card {
+            background-color: var(--cor-card);
+            border-radius: 35px;
+            border: 4px solid var(--borda-fofa);
+            padding: 3rem 2rem;
+            text-align: center;
+            animation: float 5s ease-in-out infinite, pulse-glow 4s infinite;
+            position: relative;
+        }
+
+        /* Orelhas Cinnamoroll no Card */
+        .profile-card::before, .profile-card::after {
+            content: '☁️';
+            font-size: 2.5rem;
+            position: absolute;
+            top: -20px;
+        }
+        .profile-card::before { left: 20px; transform: rotate(-20deg); }
+        .profile-card::after { right: 20px; transform: rotate(20deg); }
+
+        /* Container do Avatar de Nuvem */
+        .profile-image-container {
+            width: 170px;
+            height: 170px;
+            margin: 0 auto 1.5rem auto;
+            border-radius: 50%;
+            border: 6px double var(--cor-secundaria);
+            background: linear-gradient(135deg, #e0f6ff 0%, #fff0f5 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 8px 20px rgba(137, 207, 240, 0.3);
+            position: relative;
+            transition: transform 0.4s ease;
+        }
+
+        .profile-image-container:hover {
+            transform: scale(1.08) rotate(5deg);
+        }
+
+        .avatar-cinnamoroll {
+            font-size: 5rem;
+            user-select: none;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+        }
+
+        .student-name {
+            font-size: 2.3rem;
+            font-weight: 700;
+            color: var(--cor-primaria);
+            margin-bottom: 0.2rem;
+            text-shadow: 2px 2px 0px #fff;
+        }
+
+        .student-role {
+            color: var(--cor-secundaria);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            background: #fff5f8;
+            display: inline-block;
+            padding: 0.3rem 1.2rem;
+            border-radius: 15px;
+            border: 2px dashed var(--cor-secundaria);
+        }
+
+        .student-bio {
+            color: var(--cor-texto);
+            max-width: 550px;
+            margin: 0 auto 2rem auto;
+            font-size: 1.05rem;
+            background: rgba(240, 248, 255, 0.6);
+            padding: 1rem;
+            border-radius: 20px;
+        }
+
+        /* SEÇÃO DE PAINEL INTERATIVO E DIVERTIMENTO */
+        .interactive-panel {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .btn-coquette {
+            background-color: var(--cor-primaria);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.4rem;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            box-shadow: 0 4px 0px #5ca6cb;
+            transition: all 0.2s ease;
+        }
+
+        .btn-coquette:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0px #5ca6cb;
+            background-color: #72bf47;
+        }
+
+        .btn-coquette:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0px #5ca6cb;
+        }
+
+        .btn-pink {
+            background-color: var(--cor-secundaria);
+            box-shadow: 0 4px 0px #d88390;
+        }
+        .btn-pink:hover {
+            box-shadow: 0 6px 0px #d88390;
+            background-color: #ff9ebb;
+        }
+
+        /* SEÇÕES DE CONTEÚDO */
+        .content-section {
+            text-align: left;
+            margin-top: 2rem;
+            border-top: 3px dotted var(--borda-fofa);
+            padding-top: 2rem;
+        }
+
+        .content-section h2 {
+            font-size: 1.4rem;
+            color: var(--cor-primaria);
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-box {
+            background-color: #f7fcff;
+            padding: 1.3rem;
+            border-radius: 20px;
+            margin-bottom: 1.2rem;
+            border: 2px solid var(--borda-fofa);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .info-box:hover {
+            transform: translateX(8px);
+            border-color: var(--cor-secundaria);
+        }
+
+        .info-box strong {
+            color: var(--cor-destaque);
+            font-size: 1.1rem;
+        }
+
+        /* =========================================================
+           RODAPÉ FOFO
+        ========================================================= */
+        footer {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-top: 3px dashed var(--cor-secundaria);
+            text-align: center;
+            padding: 1.8rem;
+            font-size: 0.95rem;
+            color: var(--cor-texto);
+        }
+
+        footer a {
+            color: var(--cor-secundaria);
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* GLITTER EM MOVIMENTO NO FUNDO */
+        .sparkle {
+            position: fixed;
+            pointer-events: none;
+            animation: glitter-sparkle 1.5s infinite ease-in-out;
+            z-index: 9999;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header>
+        <nav class="navbar">
+            <a href="#" class="nav-logo">
+                <span>🎀</span> CinnamoSpace ✨
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="#" class="active">Início ☁️</a></li>
+                <li><a href="#" onclick="soltarConfeti()">Mágica ✨</a></li>
+                <li><a href="#" onclick="mudarHumor()">Humor 🍰</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main>
+        <div class="profile-card" id="cardPerfil">
+            
+            <!-- AVATAR CINNAMOROLL (SEM FOTO) -->
+            <div class="profile-image-container" id="avatarContainer" onclick="voarAvatar()">
+                <div class="avatar-cinnamoroll" id="avatarEmoji">☁️🐶✨</div>
+            </div>
+
+            <!-- INFORMAÇÕES PESSOAIS -->
+            <h1 class="student-name">Seu Nome Aqui 🎀</h1>
+            <p class="student-role" id="statusRole">Estudante Coquette / Dev Fofinha ✨</p>
+            
+            <p class="student-bio">
+                Apreciadora de canela, nuvens fofinhas e códigos organizados! 🌸 
+                Bem-vindo ao meu cantinho mágico na web. Clique nas coisas para ver a mágica acontecer!
+            </p>
+
+            <!-- BOTÕES DE FUNÇÕES DIVERTIDAS -->
+            <div class="interactive-panel">
+                <button class="btn-coquette" onclick="tocarSonsFofos()">Tocar Sininho 🔔</button>
+                <button class="btn-coquette btn-pink" onclick="gerarGlitterExtra()">Chuva de Glitter ✨</button>
+                <button class="btn-coquette" onclick="trocarTemaCores()">Trocar Cor 🎨</button>
+            </div>
+
+            <!-- SEÇÕES DE DADOS -->
+            <section class="content-section">
+                <h2><span>🍰</span> Meus Interesses & Habilidades</h2>
+                
+                <div class="info-box">
+                    <strong>✨ Tecnologias e Estudos:</strong>
+                    <p>HTML5 Fofo, CSS3 Coquette, JavaScript Divertido & Design Mágico!</p>
+                </div>
+
+                <div class="info-box">
+                    <strong>🎀 Sobre este Cantinho:</strong>
+                    <p>Criado com muito carinho, laços e nuvenzinhas. Nenhum código chato foi permitido aqui!</p>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>🎀 &copy; 2026 - Feito com amor e glitter por <strong>Seu Nome Aqui</strong> ☁️</p>
+        <p>Inspirado no Universo <a href="#">Sanrio & Cinnamoroll</a> ✨</p>
+    </footer>
+
+    <!-- SCRIPT COM TODAS AS FUNÇÕES DIVERTIDAS DA PÁGINA -->
+    <script>
+        // 1. EFEITO DE GLITTER SEGUINDO O CURSOR
+        document.addEventListener('mousemove', function(e) {
+            if (Math.random() < 0.2) { // Não criar muitos para não travar
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.innerHTML = ['✨', '💖', '☁️', '🎀', '⭐'][Math.floor(Math.random() * 5)];
+                sparkle.style.left = e.clientX + 'px';
+                sparkle.style.top = e.clientY + 'px';
+                sparkle.style.fontSize = (Math.random() * 10 + 12) + 'px';
+                document.body.appendChild(sparkle);
+
+                setTimeout(() => {
+                    sparkle.remove();
+                }, 1200);
+            }
+        });
+
+        // 2. FUNÇÃO: CHUVA DE GLITTER
+        function gerarGlitterExtra() {
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const glitter = document.createElement('div');
+                    glitter.className = 'sparkle';
+                    glitter.innerHTML = ['✨', '💎', '🌸', '🎀', '☁️', '⭐'][Math.floor(Math.random() * 6)];
+                    glitter.style.left = Math.random() * window.innerWidth + 'px';
+                    glitter.style.top = Math.random() * window.innerHeight + 'px';
+                    glitter.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                    document.body.appendChild(glitter);
+
+                    setTimeout(() => glitter.remove(), 2000);
+                }, i * 50);
+            }
+        }
+
+        // 3. FUNÇÃO: FAZER O AVATAR VOAR/GIRAR
+        function voarAvatar() {
+            const avatar = document.getElementById('avatarContainer');
+            avatar.style.transition = "transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55)";
+            avatar.style.transform = "translateY(-40px) rotate(360deg) scale(1.2)";
+            
+            setTimeout(() => {
+                avatar.style.transform = "none";
+            }, 800);
+        }
+
+        // 4. FUNÇÃO: ALTERAR STATUS E HUMOR
+        const humores = [
+            "Comendo Cinnamon Rolls 🧁", 
+            "Nas Nuvens ☁️✨", 
+            "Programando com Laços 🎀", 
+            "Brilhando Muito ⭐",
+            "Tomando Chá de Morango 🍓"
+        ];
+        function mudarHumor() {
+            const status = document.getElementById('statusRole');
+            const humorSorteado = humores[Math.floor(Math.random() * humores.length)];
+            status.innerText = humorSorteado;
+            gerarGlitterExtra();
+        }
+
+        // 5. FUNÇÃO: TROCAR TEMA DE CORES DINAMICAMENTE
+        let temaAtual = 0;
+        function trocarTemaCores() {
+            const root = document.documentElement;
+            if (temaAtual === 0) {
+                // Tema Pink Coquette
+                root.style.setProperty('--cor-primaria', '#ff8da1');
+                root.style.setProperty('--cor-secundaria', '#89cff0');
+                root.style.setProperty('--cor-fundo', '#fff0f5');
+                temaAtual = 1;
+            } else if (temaAtual === 1) {
+                // Tema Lavanda Nuvem
+                root.style.setProperty('--cor-primaria', '#b19ffb');
+                root.style.setProperty('--cor-secundaria', '#ffb6c1');
+                root.style.setProperty('--cor-fundo', '#f3f0ff');
+                temaAtual = 2;
+            } else {
+                // Volta ao Padrão Cinnamoroll Azul
+                root.style.setProperty('--cor-primaria', '#89cff0');
+                root.style.setProperty('--cor-secundaria', '#ffb6c1');
+                root.style.setProperty('--cor-fundo', '#f0f8ff');
+                temaAtual = 0;
+            }
+        }
+
+        // 6. FUNÇÃO: TOCAR SOM SINTETIZADO FOFO (Sem arquivos externos)
+        function tocarSonsFofos() {
+            const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(587.33, audioCtx.currentTime); // D5
+            osc.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.3); // A5
+            
+            gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+            
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            
+            osc.start();
+            osc.stop(audioCtx.currentTime + 0.3);
+
+            gerarGlitterExtra();
+        }
+
+        // 7. FUNÇÃO: EXPLOSÃO MÁGICA
+        function soltarConfeti() {
+            const card = document.getElementById('cardPerfil');
+            card.style.transform = "scale(1.03)";
+            setTimeout(() => card.style.transform = "none", 300);
+            gerarGlitterExtra();
+        }
+    </script>
+</body>
+</html>
